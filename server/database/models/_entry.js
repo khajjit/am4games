@@ -1,0 +1,5 @@
+require('./Article')
+require('./Game')
+require('./News')
+require('./Trailer')
+require('./User')

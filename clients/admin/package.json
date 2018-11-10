@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "yarn install --check-files && parcel app/index.html",
+    "_build": "yarn install --check-files && parcel build app/index.html",
+    "build": "yarn install --check-files && node parcel.config.js",
+    "test": "exit 1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3"
+  }
+}
