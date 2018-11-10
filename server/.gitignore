@@ -6,3 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Static files
+/sub-servers/static-user/static
+/sub-servers/static-editor/static
+/sub-servers/static-admin/static
