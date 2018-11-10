@@ -5,7 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Static files
-/sub-servers/static-user/static # remove_in_deploy_branch_by_script
-/sub-servers/static-editor/static # remove_in_deploy_branch_by_script
-/sub-servers/static-admin/static # remove_in_deploy_branch_by_script
+# Static files for server
+sub-servers/static-user/static
+sub-servers/static-editor/static
+sub-servers/static-admin/static

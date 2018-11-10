@@ -1,0 +1,8 @@
+# ignore files for Heroku
+README.md
+docker-compose.yml
+
+clients
+server/test
+server/node_modules
+server/.gitignore
