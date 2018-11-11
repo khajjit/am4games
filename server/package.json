@@ -4,7 +4,7 @@
     "yarn": "1.x"
   },
   "scripts": {
-    "test": "exit 1",
+    "test": "echo \"tests not specified\"",
     "dev-start": "yarn install --check-files && PORT=8080 nodemon index.js --watch"
   },
   "dependencies": {

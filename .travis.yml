@@ -8,3 +8,12 @@ services:
 
 script:
   - docker-compose up user_client_test
+  - docker-compose up user_client_build
+
+  - docker-compose up editor_client_test
+  - docker-compose up editor_client_build
+
+  - docker-compose up admin_client_test
+  - docker-compose up admin_client_build
+
+  - docker-compose up server_test
