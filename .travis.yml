@@ -1,3 +1,10 @@
+sudo: required
+
 language: node_js
-nvm:
-  - 11.0.0
+
+services:
+  - docker
+  - docker-compose
+
+script:
+  - docker-compose up user_client_test
