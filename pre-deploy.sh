@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # build clients
 sudo docker-compose up user_client_build
 sudo docker-compose up admin_client_build
@@ -19,7 +17,3 @@ echo "Files for the static-admin server were delivered"
 sudo rm -rf server/sub-servers/static-editor/static
 cp -R clients/editor/build/. server/sub-servers/static-editor/static
 echo "Files for the static-editor server were delivered"
-
-
-
-# Remove?

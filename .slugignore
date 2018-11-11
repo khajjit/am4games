@@ -1,0 +1,10 @@
+# ignore files for Heroku
+.travis.yml
+README.md
+docker-compose.yml
+pre-deploy.sh
+
+clients
+server/test
+server/node_modules
+server/.gitignore

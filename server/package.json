@@ -1,16 +1,11 @@
 {
-  "repository": {
-    "type": "git",
-    "url": "https://git.heroku.com/am4games.git"
-  },
-  "main": "index.js",
   "engines": {
-    "node": "11.0.0"
+    "node": "11.0.0",
+    "yarn": "1.x"
   },
   "scripts": {
-    "test": "exit 1",
-    "dev-start": "yarn install --check-files && PORT=8080 nodemon index.js --watch",
-    "start": "node index.js"
+    "test": "echo \"tests not specified\"",
+    "dev-start": "yarn install --check-files && PORT=8080 nodemon index.js --watch"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
