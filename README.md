@@ -2,7 +2,7 @@
 
 Just a web application
 
-### Development
+#### Development
 
 Development is carried out with the help of the [Docker](https://www.docker.com/).
 
@@ -15,9 +15,8 @@ Development is carried out with the help of the [Docker](https://www.docker.com/
 
 
 
-## **In plans:**
+#### **In plans:**
 
-#### _Branch: init_
 - [ ] Setup performance tests and then try apply best practices [like this](http://expressjs.com/en/advanced/best-practice-performance.html)
 - [ ] Setup tests infrastructure
 - [ ] Setup logger for server
