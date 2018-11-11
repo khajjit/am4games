@@ -1,0 +1,10 @@
+{
+  "comment": "Entry file for deploy on Heroku",
+  "engines": {
+    "node": "11.0.0",
+    "yarn": "1.x"
+  },
+  "scripts": {
+    "start": "cd server && yarn && node index.js"
+  }
+}
