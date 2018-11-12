@@ -5,7 +5,7 @@
   },
   "scripts": {
     "test": "echo \"tests not specified\"",
-    "dev-start": "yarn install --check-files && PORT=8080 nodemon index.js --watch"
+    "dev-start": "yarn install --check-files && PORT=8081 nodemon index.js --watch"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
