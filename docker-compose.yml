@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   # Editor client
-  editor_client_dev:
+  editor_dev:
     image: node:11.0-alpine
     container_name: editor_client_dev
     working_dir: /app
@@ -12,7 +12,7 @@ services:
       - type: bind
         source: ./clients/editor
         target: /app
-  editor_client_build:
+  editor_build:
     image: node:11.0-alpine
     container_name: editor_client_build
     working_dir: /app
@@ -21,7 +21,7 @@ services:
       - type: bind
         source: ./clients/editor
         target: /app
-  editor_client_test:
+  editor_test:
     image: node:11.0-alpine
     container_name: editor_client_test
     working_dir: /app
@@ -31,7 +31,7 @@ services:
         source: ./clients/editor
         target: /app
   # Admin client
-  admin_client_dev:
+  admin_dev:
     image: node:10-alpine # TODO: Change to node:11-alpine lately
     container_name: admin_client_dev
     network_mode: "host" # parcer-bundler has some side-effect with ports, so it's better solution TODO: change to port 8083
@@ -41,7 +41,7 @@ services:
       - type: bind
         source: ./clients/admin
         target: /app
-  admin_client_build:
+  admin_build:
     image: node:10-alpine
     container_name: admin_client_build
     working_dir: /app
@@ -50,7 +50,7 @@ services:
       - type: bind
         source: ./clients/admin
         target: /app
-  admin_client_test:
+  admin_test:
     image: node:10-alpine
     container_name: admin_client_test
     working_dir: /app
@@ -60,7 +60,7 @@ services:
         source: ./clients/admin
         target: /app
   # User client
-  user_client_dev:
+  user_dev:
     image: node:11.0-alpine
     container_name: user_client_dev
     working_dir: /app
@@ -71,7 +71,7 @@ services:
       - type: bind
         source: ./clients/user
         target: /app
-  user_client_build:
+  user_build:
     image: node:11.0-alpine
     container_name: user_client_build
     working_dir: /app
@@ -80,7 +80,7 @@ services:
       - type: bind
         source: ./clients/user
         target: /app
-  user_client_test:
+  user_test:
     image: node:11.0-alpine
     container_name: user_client_test
     working_dir: /app

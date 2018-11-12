@@ -7,13 +7,13 @@ services:
   - docker-compose
 
 script:
-  - docker-compose up user_client_test
-  - docker-compose up user_client_build
+  - docker-compose up user_test
+  - docker-compose up user_build
 
-  - docker-compose up editor_client_test
-  - docker-compose up editor_client_build
+  - docker-compose up editor_test
+  - docker-compose up editor_build
 
-  - docker-compose up admin_client_test
-  - docker-compose up admin_client_build
+  - docker-compose up admin_test
+  - docker-compose up admin_build
 
   - docker-compose up server_test
