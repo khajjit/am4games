@@ -1,5 +1,5 @@
 const express = require('express');
-const { checkAccess } = require('../../helpers/auth')
+const { checkAccess } = require('../../utils/auth')
 
 const apiUser = express();
 apiUser.all('*', (req, res, next) => {

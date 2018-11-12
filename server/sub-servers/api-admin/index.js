@@ -1,6 +1,6 @@
 const express = require('express');
 const { connection } = require('../../database/config')
-const { checkAccess } = require('../../helpers/auth')
+const { checkAccess } = require('../../utils/auth')
 
 require('../../database/models/_entry') // TODO: import only necessary models
 

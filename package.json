@@ -1,4 +1,6 @@
 {
+  "version": "0.0.0",
+  "name": "am4games",
   "comment": "Entry file for deploy on Heroku (dependencies must be duplicated from server/package.json)",
   "engines": {
     "node": "11.0.0",

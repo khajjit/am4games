@@ -1,6 +1,6 @@
 const fs = require('fs');
 const express = require('express')
-const { checkAccess } = require('../../helpers/auth')
+const { checkAccess } = require('../../utils/auth')
 
 const staticAdmin = express()
 staticAdmin.all('*', (req, res, next) => {
