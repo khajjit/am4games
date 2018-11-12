@@ -60,13 +60,13 @@ services:
         source: ./clients/admin
         target: /app
   # User client
-  # user_dev: # TODO: fix it
-  #   image: node:11.0-alpine
-  #   container_name: user_client_dev
-  #   working_dir: /app
-  #   ports:
-  #     - "8081:8081"
-    command: yarn serve
+  user_dev:
+    image: node:11.0-alpine
+    container_name: user_client_dev
+    working_dir: /app
+    ports:
+      - "8081:8081"
+    command: yarn start
     volumes:
       - type: bind
         source: ./clients/user
@@ -101,7 +101,7 @@ services:
     working_dir: /app
     command: yarn dev-start
     ports:
-      - "8081:8081"
+      - "8080:8080"
     volumes:
       - type: bind
         source: ./server

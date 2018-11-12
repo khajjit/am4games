@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "yarn install --check-files && vue-cli-service serve",
+    "start": "yarn install --check-files && MODE=dev vue-cli-service serve",
     "build": "yarn install --check-files && vue-cli-service build",
     "lint": "yarn install --check-files && vue-cli-service lint"
   },
