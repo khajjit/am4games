@@ -1,7 +1,0 @@
-version: "3.2"
-services:
-  database_dev:
-    image: mongo:4.0
-    container_name: database_dev
-    ports:
-      - "27017:27017"
