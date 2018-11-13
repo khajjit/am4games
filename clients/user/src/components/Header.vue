@@ -25,30 +25,27 @@ export default {
 }
 </script>
 
-<style scoped>
-.header {
+<style scoped lang="sass">
+.header
   color: green;
   height: 80px;
-}
-.menu {
+
+.menu
   margin: 0;
   float: left;
   list-style-type: none;
   padding: 0;
-}
-.menu > li {
-  display: inline-block;
-}
-.menu > .menu-icon {
-  width: 200px;
-  height: 70px;
-  background-color: #30b5d8;
-  margin-left: 110px;
-  color: white;
-  text-align: center;
-  vertical-align: middle;
-}
-.auth-panel {
+  li
+    display: inline-block;
+  .menu-icon
+    width: 200px;
+    height: 70px;
+    background-color: #30b5d8;
+    margin-left: 110px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+
+.auth-panel
   float: right;
-}
 </style>
