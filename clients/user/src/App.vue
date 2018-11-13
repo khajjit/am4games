@@ -24,7 +24,6 @@ body {
   margin: 0 auto;
 }
 #app {
-  font-family: 'Open Sans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
