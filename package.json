@@ -12,6 +12,9 @@
     "mongoose": "5.3.9"
   },
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "dev-user": "sudo docker-compose up database_dev server_dev user_dev",
+    "dev-editor": "sudo docker-compose up database_dev server_dev editor_dev",
+    "dev-admin": "sudo docker-compose up database_dev server_dev admin_dev"
   }
 }
