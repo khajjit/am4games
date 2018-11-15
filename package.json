@@ -1,7 +1,7 @@
 {
   "version": "0.0.0",
   "name": "am4games",
-  "comment": "Entry file for deploy on Heroku (dependencies must be duplicated from server/package.json)",
+  "comment": "Dependencies must be duplicated from server/package.json (manually)",
   "engines": {
     "node": "11.0.0",
     "yarn": "1.x"
@@ -15,6 +15,9 @@
     "start": "node server/index.js",
     "dev-user": "sudo docker-compose up database_dev server_dev user_dev",
     "dev-editor": "sudo docker-compose up database_dev server_dev editor_dev",
-    "dev-admin": "sudo docker-compose up database_dev server_dev admin_dev"
+    "dev-admin": "sudo docker-compose up database_dev server_dev admin_dev",
+    "test-user": "sudo docker-compose up user_test",
+    "test-editor": "sudo docker-compose up editor_test",
+    "test-admin": "sudo docker-compose up admin_test"
   }
 }
