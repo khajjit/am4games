@@ -1,3 +1,4 @@
+/* The complete database schema is stored here: https://www.lucidchart.com */
 const mongoose = require('mongoose');
 
 const names = {

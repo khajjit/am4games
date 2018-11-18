@@ -2,56 +2,78 @@ const mongoose = require('mongoose');
 const models = require('./models/_entry');
 const { connection } = require('./config');
 
-connection.dropDatabase().then(() => {
-  [
-    { modelName: 'User', create: createMockUsers },
-    { modelName: 'News', create: createMockNews },
-    { modelName: 'Article', create: createMockArticles },
-    { modelName: 'Trailer', create: createMockTrailers },
-    { modelName: 'Game', create: createMockGames }
-  ].map(({ modelName, create }) => {
-    connection.model(modelName).insertMany(create(), (err, res) => {
-      if (err) throw err
-      console.log(`Data for model = ${modelName} has been added!`)
-    })
-  });
-})
-
-setTimeout(() => { // TODO: Remove that
-  connection.close()
-}, 4000)
-
-function createMockUsers(arr = []) {
+const createMockUsers = new Promise((resolve) => {
+  let arr = []
   for (let i = 1; i < 11; i++) {
     arr.push({ info: `mock-user-${i}` })
   }
-  return arr
-}
+  connection.model('User').insertMany(arr, (err, res) => {
+    if (err) throw err
+    console.log(`Data for model = \`User\` has been added!`)
+    resolve()
+  })
+});
 
-function createMockNews(arr = []) {
+const createMockNews = new Promise((resolve) => {
+  let arr = []
   for (let i = 1; i < 11; i++) {
     arr.push({ info: `mock-news-${i}` })
   }
-  return arr
-}
+  connection.model('News').insertMany(arr, (err, res) => {
+    if (err) throw err
+    console.log(`Data for model = \`News\` has been added!`)
+    resolve()
+  })
+});
 
-function createMockArticles(arr = []) {
+const createMockArticles = new Promise((resolve) => {
+  let arr = []
   for (let i = 1; i < 11; i++) {
     arr.push({ info: `mock-article-${i}` })
   }
-  return arr
-}
+  connection.model('Article').insertMany(arr, (err, res) => {
+    if (err) throw err
+    console.log(`Data for model = \`Article\` has been added!`)
+    resolve()
+  })
+});
 
-function createMockTrailers(arr = []) {
+const createMockTrailers = new Promise((resolve) => {
+  let arr = []
   for (let i = 1; i < 11; i++) {
-    arr.push({ info: `mock-trailer-${i}` })
+    arr.push({ info: `mock-article-${i}` })
   }
-  return arr
-}
+  connection.model('Trailer').insertMany(arr, (err, res) => {
+    if (err) throw err
+    console.log(`Data for model = \`Trailer\` has been added!`)
+    resolve()
+  })
+});
 
-function createMockGames(arr = []) {
+const createMockGames = new Promise((resolve) => {
+  let arr = []
   for (let i = 1; i < 11; i++) {
     arr.push({ info: `mock-game-${i}` })
   }
-  return arr
-}
+  connection.model('Game').insertMany(arr, (err, res) => {
+    if (err) throw err
+    console.log(`Data for model = \`Game\` has been added!`)
+    resolve()
+  })
+});
+
+
+connection.dropDatabase().then(() => Promise.all([
+  createMockUsers,
+  createMockNews,
+  createMockArticles,
+  createMockTrailers,
+  createMockGames
+]).then(res => {
+  connection.close()
+  console.log('Database was successfully filled!')
+}).catch(err => {
+  connection.close()
+  console.log('Some error happened')
+  console.log(err)
+}));
