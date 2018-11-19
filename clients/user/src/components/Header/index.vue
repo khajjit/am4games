@@ -2,15 +2,17 @@
   <div class="header">
     <ul class="menu">
       <li class="menu-icon">
-        <img src="../assets/header-icon.png">
+        <router-link to="/">
+          <img src="../../assets/header-icon.png">
+        </router-link>
       </li>
-      <li>Новости</li>
-      <li>Статьи</li>
-      <li>Видео</li>
-      <li>Игры</li>
-      <li>Ещё</li>
+      <li><router-link to="/news">Новости</router-link></li>
+      <li><router-link to="/articles">Статьи</router-link></li>
+      <li><router-link to="/trailers">Видео</router-link></li>
+      <li><router-link to="/games">Игры</router-link></li>
+      <li><router-link to="/about">Ещё</router-link></li>
       <li class="search-button">
-        <img src="../assets/search-icon.png">
+        <img src="../../assets/search-icon.png">
       </li>
     </ul>
     <div class="auth-panel" v-if="!userInfo">
@@ -26,7 +28,7 @@
 </template>
 
 <script>
-import { getUserInfo, setUserInfo, removeUserInfo } from "../utils/local-storage"
+import { getUserInfo, setUserInfo, removeUserInfo } from "../../utils/local-storage"
 // split this file into 'Header/Menu' and 'Header/Auth'? (+ Header/index.js or .vue)
 export default {
   name: 'Header',

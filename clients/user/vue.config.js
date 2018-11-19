@@ -1,7 +1,8 @@
 // vue.config.js
 
 module.exports = {
-  baseUrl: process.env['MODE'] === 'dev' ? '/' : '/user',
+  runtimeCompiler: true,
+  baseUrl: process.env['NODE_ENV'] === 'development' ? '/' : '/user',
   productionSourceMap: false,
   devServer: {
     port: 8081
