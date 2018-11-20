@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header>
     <ul class="menu">
       <li class="menu-icon">
         <router-link to="/">
@@ -24,7 +24,7 @@
       <img class="user-image">
       <!-- <form class="user-menu"></form> -->
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.header
+header
   height: 70px;
 
 .menu
