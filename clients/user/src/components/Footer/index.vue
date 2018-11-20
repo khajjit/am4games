@@ -22,7 +22,7 @@
     <img class="dude-with-guns" src="../../assets/footer/dude-with-guns.png" />
     <div class="age-warning">+ 18</div>
     <div class="copyright-warning">
-      <h4 class="title">Copyright © 2001-2014</h4>
+      <h4 class="title">Copyright © 2001-2019</h4>
       <p class="desc">
         Все права защищены законодательством РФ.<br />
         Использование материалов сайта возможно<br />
@@ -36,6 +36,7 @@
 footer
   width: 1600px;
   height: 440px;
+  margin-top: -440px;
   background-color: #ebebeb;
   @media (max-width: 1600px)
     display: none;

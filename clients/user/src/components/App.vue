@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <div class="content">
-      <Header />
-      <router-view></router-view>
-      <img alt="Vue logo" src="../assets/logo.png">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <div class="content-inside">
+        <Header />
+        <router-view></router-view>
+        <img alt="Vue logo" src="../assets/logo.png">
+        <HelloWorld msg="Welcome to Your Vue.js App"/>
+      </div>
     </div>
     <Footer />
   </div>
@@ -43,6 +45,8 @@ html, body {
 }
 .content {
   min-height: 100%;
-  margin: 0 auto -380px;
+}
+.content-inside {
+  padding-bottom: 440px;
 }
 </style>
