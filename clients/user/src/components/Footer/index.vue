@@ -11,15 +11,14 @@
         <li><button class="tree"></button></li>
       </ul>
       <div class="social-info">
-        <h4 class="social-info-title">Немного о нашем сайте</h4>
-        <p class="social-info-desc">
+        <h4 class="title">Немного о нашем сайте</h4>
+        <p class="desc">
           AM4  — это большая коллекция игровой информации,<br />
           помогающей геймерам со всего мира быть в курсе<br />
           последних новостей игровой индустрии.
         </p>
       </div>
     </div>
-    <img class="dude-with-guns" src="../../assets/footer/dude-with-guns.png" />
     <div class="age-warning">+ 18</div>
     <div class="copyright-warning">
       <h4 class="title">Copyright © 2001-2019</h4>
@@ -28,6 +27,11 @@
         Использование материалов сайта возможно<br />
         только с прямой ссылкой на источник.
       </p>
+    </div>
+    <img class="dude-with-guns" src="../../assets/footer/dude-with-guns.png" />
+    <div class="bottom">
+      <img class="rectangles" src="../../assets/footer/bottom-rectangles.png" />
+      <hr class="line" />
     </div>
   </footer>
 </template>
@@ -101,22 +105,22 @@ footer
     text-align: left;
     margin-top: 35px;
     margin-left: 35px;
-    .social-info-title
+    .title
       color: #ffffff;
       font-family: "Open Sans Semibold";
       font-weight: 600;
       font-size: 17px;
-    .social-info-desc
+    .desc
       color: #a7a7a7;
       margin-top: 25px;
-      font-family: "Open Sans";
       line-height: 24px;
       font-weight: 300;
       font-size: 15px;
 
 .dude-with-guns
+  float: right;
   margin-top: -330px;
-  margin-left: 100px;
+  margin-right: -200px;
 
 .age-warning
   width: 100px;
@@ -132,4 +136,34 @@ footer
   line-height: 24px;
   font-weight: 300;
   font-size: 31px;
+.copyright-warning
+  float: right;
+  text-align: left;
+  margin-right: 140px;
+  .title
+    margin-bottom: 5px;
+    font-family: "Open Sans Semibold";
+    font-weight: 600;
+  .desc
+    font-family: "Open Sans Light";
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 24px;
+
+.bottom
+  position: relative;
+  .rectangles
+    /* TODO: rewrite without image */
+    /* background-image: linear-gradient(-193deg, #ff4c36 0%, #a31706 100%); */
+    float: right;
+    float: right;
+    margin-top: -87px;
+    margin-right: -550px;
+
+  .line
+    background: linear-gradient(90deg, #ff4c36 50%, #00abed 50%);
+    margin-top: 160px;
+    height: 10px;
+    width: 100%;
+    border: 0;
 </style>

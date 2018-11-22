@@ -65,7 +65,6 @@ header
   li:nth-child(n + 2)
     margin: 0 15px;
     color: #32272b;
-    font-family: "Open Sans";
     letter-spacing: 1px;
     font-weight: 300;
     font-size: 20px;
@@ -90,7 +89,6 @@ header
     color: #000000;
     cursor: pointer;
     margin-right: 17px;
-    font-family: "Open Sans";
     background-color: white;
     letter-spacing: 0.54px;
     line-height: 30px;
@@ -102,7 +100,6 @@ header
     height: 40px;
     color: #000000;
     cursor: pointer;
-    font-family: "Open Sans";
     background-color: #30b5d8;
     letter-spacing: 0.9px;
     line-height: 30px;
@@ -118,7 +115,6 @@ header
     cursor: pointer;
     margin-right: 17px;
     background-color: white;
-    font-family: "Open Sans";
     text-transform: uppercase;
     letter-spacing: 0.72px;
     line-height: 27px;

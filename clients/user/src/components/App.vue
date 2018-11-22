@@ -30,6 +30,7 @@ export default {
 <style>
 * {
   margin: 0 auto;
+  font-family: "Open Sans";
 }
 html, body {
   height: 100%;
