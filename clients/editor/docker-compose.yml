@@ -1,46 +1,46 @@
-# User client
+# Editor client
 version: "3.2"
 services:
-  user_dev:
+  editor_dev:
     image: node:11.0-alpine
-    container_name: user_dev
+    container_name: editor_dev
     working_dir: /app
     command: yarn start
     ports:
-      - "8081:8081"
+      - "8082:8082"
     volumes:
       - type: bind
         source: .
         target: /app
-  user_build:
+  editor_build:
     image: node:11.0-alpine
-    container_name: user_build
+    container_name: editor_build
     working_dir: /app
     command: yarn build
     volumes:
       - type: bind
         source: .
         target: /app
-  user_test:
+  editor_test:
     image: node:11.0-alpine
-    container_name: user_test
+    container_name: editor_test
     working_dir: /app
-    command: yarn lint
+    command: yarn test
     volumes:
       - type: bind
         source: .
         target: /app
   server:
     image: node:11.0-alpine
-    container_name: server-user
+    container_name: server-editor
     working_dir: /app
     command: yarn dev-start
-    network_mode: "service:user_dev"
+    network_mode: "service:editor_dev"
     volumes:
       - type: bind
         source: ../../server
         target: /app
   database:
     image: mongo:4.0
-    container_name: database-user
+    container_name: database-editor
     network_mode: "service:server"

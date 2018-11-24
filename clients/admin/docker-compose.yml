@@ -1,46 +1,45 @@
-# User client
+# Admin client
 version: "3.2"
 services:
-  user_dev:
-    image: node:11.0-alpine
-    container_name: user_dev
+  admin_dev:
+    image: node:10-alpine # TODO: Change to node:11-alpine lately
+    container_name: admin_client_dev
+    network_mode: "host" # parcer-bundler has some side-effect with ports, so it's better solution TODO: change to port 8083
     working_dir: /app
     command: yarn start
-    ports:
-      - "8081:8081"
     volumes:
       - type: bind
         source: .
         target: /app
-  user_build:
-    image: node:11.0-alpine
-    container_name: user_build
+  admin_build:
+    image: node:10-alpine
+    container_name: admin_build
     working_dir: /app
     command: yarn build
     volumes:
       - type: bind
         source: .
         target: /app
-  user_test:
-    image: node:11.0-alpine
-    container_name: user_test
+  admin_test:
+    image: node:10-alpine
+    container_name: admin_test
     working_dir: /app
-    command: yarn lint
+    command: yarn test
     volumes:
       - type: bind
         source: .
         target: /app
   server:
     image: node:11.0-alpine
-    container_name: server-user
+    container_name: server-admin
     working_dir: /app
     command: yarn dev-start
-    network_mode: "service:user_dev"
+    network_mode: "service:admin_dev"
     volumes:
       - type: bind
         source: ../../server
         target: /app
   database:
     image: mongo:4.0
-    container_name: database-user
+    container_name: database-admin
     network_mode: "service:server"

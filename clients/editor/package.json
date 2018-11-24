@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "yarn install --check-files && if-env NODE_ENV=production && yarn -s serve || yarn -s dev",
+    "docker-dev": "sudo docker-compose up editor_dev server database",
+    "docker-test": "sudo docker-compose up editor_test server database",
+    "": "",
+    "start": "yarn install --check-files && yarn -s dev",
     "build": "yarn install --check-files && preact build",
     "serve": "preact build && preact serve",
-    "dev": "preact watch",
+    "dev": "NODE_ENV=development preact watch -p 8082",
     "lint": "eslint src",
     "jest": "jest",
     "test": "yarn install --check-files && yarn lint && yarn jest"

@@ -1,7 +1,7 @@
 {
   "version": "0.0.0",
   "name": "am4games",
-  "comment": "Dependencies must be duplicated from server/package.json (manually)",
+  "comment": "Dependencies must be duplicated from server/package.json (move to pre-deploy.sh?)",
   "engines": {
     "node": "11.0.0",
     "yarn": "1.x"
@@ -12,12 +12,21 @@
     "mongoose": "5.3.9"
   },
   "scripts": {
+    "": "for deploy on Heroku",
     "start": "node server/index.js",
-    "dev-user": "sudo docker-compose up database_dev server_dev user_dev",
-    "dev-editor": "sudo docker-compose up database_dev server_dev editor_dev",
-    "dev-admin": "sudo docker-compose up database_dev server_dev admin_dev",
-    "test-user": "sudo docker-compose up user_test",
-    "test-editor": "sudo docker-compose up editor_test",
-    "test-admin": "sudo docker-compose up admin_test"
+
+    "": "for develop clients",
+    "dev-user": "cd clients/user && yarn docker-dev",
+    "dev-editor": "cd clients/editor && yarn docker-dev",
+    "dev-admin": "cd clients/admin && yarn docker-dev",
+
+    "": "for test clients",
+    "test-user": "cd clients/user && yarn docker-test",
+    "test-editor": "cd clients/editor && yarn docker-test",
+    "test-admin": "cd clients/admin && yarn docker-dev",
+
+    "": "for develop server",
+    "dev-server": "cd server && yarn docker-dev",
+    "dev-test": "cd server && yarn docker-test"
   }
 }

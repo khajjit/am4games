@@ -4,5 +4,5 @@ export default (config, env, helpers) => {
   // plugin.options.sourceMap = false
 
   /* ... */
-  config.output.publicPath = '/editor/'
+  config.output.publicPath = process.env['NODE_ENV'] === 'development' ? '/' : '/editor'
 }

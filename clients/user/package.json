@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "sudo docker-compose up user_dev database_dev server_dev",
+    "docker-dev": "sudo docker-compose up user_dev server database",
+    "docker-test": "sudo docker-compose up user_test server database",
+    "": "",
     "start": "yarn install --check-files && NODE_ENV=development vue-cli-service serve",
     "build": "yarn install --check-files && NODE_ENV=production vue-cli-service build",
     "lint": "yarn install --check-files && vue-cli-service lint"

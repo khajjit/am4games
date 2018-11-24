@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "docker-dev": "sudo docker-compose up admin_dev server database",
+    "docker-test": "sudo docker-compose up admin_test server database",
+    "": "",
     "start": "yarn install --check-files && parcel app/index.html",
     "_build": "yarn install --check-files && parcel build app/index.html",
     "build": "yarn install --check-files && node parcel.config.js",

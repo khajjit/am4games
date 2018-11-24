@@ -1,7 +1,13 @@
 # build clients
-sudo docker-compose up user_client_build
-sudo docker-compose up admin_client_build
-sudo docker-compose up editor_client_build
+cd clients/user
+sudo docker-compose up user_build
+
+cd ../../clients/admin
+sudo docker-compose up admin_build
+
+cd ../../clients/editor
+sudo docker-compose up editor_build
+cd ../..
 
 # move user build to server
 sudo rm -rf server/sub-servers/static-user/static

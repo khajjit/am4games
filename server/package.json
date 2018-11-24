@@ -4,6 +4,9 @@
     "yarn": "1.x"
   },
   "scripts": {
+    "docker-dev": "sudo docker-compose up server_dev database",
+    "docker-test": "sudo docker-compose up server_test database",
+    "": "",
     "test": "echo \"tests not specified\"",
     "dev-start": "yarn install --check-files && sleep 5 && node database/seed.js && PORT=8080 nodemon index.js --watch"
   },
