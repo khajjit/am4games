@@ -64,10 +64,12 @@ header
     display: inline-block;
   li:nth-child(n + 2)
     margin: 0 15px;
-    color: #32272b;
     letter-spacing: 1px;
     font-weight: 300;
     font-size: 20px;
+    > a
+      text-decoration: none;
+      color: #32272b;
   li.search-button
     background-color: #ededed;
     line-height: 65px;
