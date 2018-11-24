@@ -5,6 +5,8 @@ module.exports = {
   baseUrl: process.env['NODE_ENV'] === 'development' ? '/' : '/user',
   productionSourceMap: false,
   devServer: {
-    port: 8081
+    port: 8081,
+    proxy: 'http://127.0.0.1:8080',
+    historyApiFallback: true
   }
 }

@@ -59,36 +59,6 @@ services:
       - type: bind
         source: ./clients/admin
         target: /app
-  # User client
-  user_dev:
-    image: node:11.0-alpine
-    container_name: user_client_dev
-    working_dir: /app
-    ports:
-      - "8081:8081"
-    command: yarn start
-    volumes:
-      - type: bind
-        source: ./clients/user
-        target: /app
-  user_build:
-    image: node:11.0-alpine
-    container_name: user_client_build
-    working_dir: /app
-    command: yarn build
-    volumes:
-      - type: bind
-        source: ./clients/user
-        target: /app
-  user_test:
-    image: node:11.0-alpine
-    container_name: user_client_test
-    working_dir: /app
-    command: yarn lint
-    volumes:
-      - type: bind
-        source: ./clients/user
-        target: /app
   # Database
   database_dev:
     image: mongo:4.0

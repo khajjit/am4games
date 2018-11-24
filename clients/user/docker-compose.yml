@@ -1,0 +1,48 @@
+# User client
+version: "3.2"
+services:
+  user_dev:
+    image: node:11.0-alpine
+    container_name: client
+    working_dir: /app
+    ports:
+      - "8081:8081"
+    command: yarn start
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+  user_build:
+    image: node:11.0-alpine
+    container_name: user_client_build
+    working_dir: /app
+    command: yarn build
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+  user_test:
+    image: node:11.0-alpine
+    container_name: user_client_test
+    working_dir: /app
+    command: yarn lint
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+  # Server
+  server_dev:
+    image: node:11.0-alpine
+    container_name: server
+    working_dir: /app
+    command: yarn dev-start
+    network_mode: "service:user_dev"
+    volumes:
+      - type: bind
+        source: ../../server
+        target: /app
+  # Database
+  database_dev:
+    image: mongo:4.0
+    container_name: database
+    network_mode: "service:server_dev"
