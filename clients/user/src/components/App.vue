@@ -4,8 +4,6 @@
       <div class="content-inside">
         <Header />
         <router-view></router-view>
-        <img alt="Vue logo" src="../assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
       </div>
     </div>
     <Footer />
@@ -13,16 +11,14 @@
 </template>
 
 <script>
-import HelloWorld from './HelloWorld.vue'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './_shared/Header'
+import Footer from './_shared/Footer'
 
 export default {
   name: 'app',
   components: {
     Header,
-    Footer,
-    HelloWorld
+    Footer
   }
 }
 </script>

@@ -28,9 +28,9 @@
         только с прямой ссылкой на источник.
       </p>
     </div>
-    <img class="dude-with-guns" src="../../assets/footer/dude-with-guns.png" />
+    <img class="dude-with-guns" src="../../../assets/footer/dude-with-guns.png" />
     <div class="bottom">
-      <img class="rectangles" src="../../assets/footer/bottom-rectangles.png" />
+      <img class="rectangles" src="../../../assets/footer/bottom-rectangles.png" />
       <hr class="line" />
     </div>
   </footer>
@@ -49,7 +49,7 @@ footer
 .social-links-content
   width: 740px;
   height: 270px;
-  background-image: url('../../assets/footer/social-links-background.png');
+  background-image: url('../../../assets/footer/social-links-background.png');
   background-color: #33282c;
   margin-left: 120px;
   hr
@@ -70,7 +70,7 @@ footer
       border: 0;
       margin-right: 14px;
       background-position: center;
-      background-image: url('../../assets/footer/outgoing-dude.png');
+      background-image: url('../../../assets/footer/outgoing-dude.png');
       background-repeat: no-repeat;
       background-color: #f7d54a;
       height: 60px;
@@ -87,19 +87,19 @@ footer
     li:nth-child(n + 2)
       > .twitter
         background-color: #00acee;
-        background-image: url('../../assets/footer/twitter.png');
+        background-image: url('../../../assets/footer/twitter.png');
       > .facebook
         background-color: #3b5998;
-        background-image: url('../../assets/footer/facebook.png');
+        background-image: url('../../../assets/footer/facebook.png');
       > .grinder
         background-color: #ea4c89;
-        background-image: url('../../assets/footer/grinder.png');
+        background-image: url('../../../assets/footer/grinder.png');
       > .google
         background-color: #db4a39;
-        background-image: url('../../assets/footer/google.png');
+        background-image: url('../../../assets/footer/google.png');
       > .tree
         background-color: #598728;
-        background-image: url('../../assets/footer/tree.png');
+        background-image: url('../../../assets/footer/tree.png');
   .social-info
     float: left;
     text-align: left;

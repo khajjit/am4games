@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import MainPage from '@/components/MainPage'
 import News from '@/components/News'
 import Articles from '@/components/Articles'
 import Trailers from '@/components/Trailers'
@@ -12,10 +13,10 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/',
-    //   component: MainPage
-    // },
+    {
+      path: '/',
+      component: MainPage
+    },
     {
       path: '/news',
       component: News

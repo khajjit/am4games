@@ -3,7 +3,7 @@
     <ul class="menu">
       <li class="menu-icon">
         <router-link to="/">
-          <img src="../../assets/header/am4-icon.png">
+          <img src="../../../assets/header/am4-icon.png">
         </router-link>
       </li>
       <li><router-link to="/news">Новости</router-link></li>
@@ -12,7 +12,7 @@
       <li><router-link to="/games">Игры</router-link></li>
       <li><router-link to="/about">Ещё</router-link></li>
       <li class="search-button">
-        <img src="../../assets/header/search-icon.png">
+        <img src="../../../assets/header/search-icon.png">
       </li>
     </ul>
     <div class="auth-panel" v-if="!userInfo">
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { getUserInfo, setUserInfo, removeUserInfo } from "../../utils/local-storage"
+import { getUserInfo, setUserInfo, removeUserInfo } from "../../../utils/local-storage"
 // split this file into 'Header/Menu' and 'Header/Auth'? (+ Header/index.js or .vue)
 export default {
   name: 'Header',
