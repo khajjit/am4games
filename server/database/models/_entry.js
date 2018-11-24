@@ -1,4 +1,5 @@
 require('./Article')
+require('./File')
 require('./Game')
 require('./News')
 require('./Trailer')

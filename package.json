@@ -7,9 +7,11 @@
     "yarn": "1.x"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
-    "mongoose": "5.3.9"
+    "mongoose": "5.3.9",
+    "multer": "^1.4.1"
   },
   "scripts": {
     "": "for deploy on Heroku",

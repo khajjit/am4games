@@ -1,3 +1,4 @@
+const fs = require('fs');
 const mongoose = require('mongoose');
 const models = require('./models/_entry');
 const { connection } = require('./config');
@@ -62,13 +63,26 @@ const createMockGames = new Promise((resolve) => {
   })
 });
 
+const createMockFiles = new Promise((resolve) => { // TODO: mix with News
+  let arr = []
+  for (let i = 1; i <= 6; i++) {
+    arr.push({ binData: fs.readFileSync(__dirname + '/test-image.png') })
+  }
+  connection.model('File').insertMany(arr, (err, res) => {
+    if (err) throw err
+    console.log(`Data for model = \`File\` has been added!`)
+    resolve()
+  })
+});
+
 
 connection.dropDatabase().then(() => Promise.all([
   createMockUsers,
   createMockNews,
   createMockArticles,
   createMockTrailers,
-  createMockGames
+  createMockGames,
+  createMockFiles
 ]).then(res => {
   connection.close()
   console.log('Database was successfully filled!')
