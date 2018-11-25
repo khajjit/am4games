@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  info: String
+  previewData: {
+    imageId: String,
+    textBoxColor: String,
+    titleColor: String,
+    descColor: String,
+    headerColor: String,
+    title: String,
+    desc: String
+  },
+  info: {
+    createdAt: Date,
+    text: String
+  }
 });
 
 schema.post('save', doc => console.log('New news has been saved!'));

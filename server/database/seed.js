@@ -17,13 +17,36 @@ const createMockUsers = new Promise((resolve) => {
 
 const createMockNews = new Promise((resolve) => {
   let arr = []
-  for (let i = 1; i < 11; i++) {
-    arr.push({ info: `mock-news-${i}` })
+  for (let i = 1; i <= 6; i++) {
+    arr.push({ binData: fs.readFileSync(__dirname + '/test-image.png') })
   }
-  connection.model('News').insertMany(arr, (err, res) => {
+  connection.model('File').insertMany(arr, (err, res) => {
     if (err) throw err
-    console.log(`Data for model = \`News\` has been added!`)
-    resolve()
+    const arrIdFiles = res.map(e => e['_id']);
+
+    let arr = []
+    for (let i = 1; i <= arrIdFiles.length; i++) {
+      arr.push({
+        previewData: {
+          imageId: arrIdFiles[i],
+          textBoxColor: "#29abcd",
+          titleColor: "#000000",
+          descColor: "ffffff",
+          headerColor: "#30b5d8",
+          title: "Ненавязчивый анализ Mirror’s Edge",
+          desc: "Ещё совсем недавно осень считалась главным поставщиком крупных игровых релизов. Полки магазинов ломились от новинок, а от покупателей не было отбоя. Доходило до того, что к концу сезона кошельки походили на выпотрошенные туши."
+        },
+        info: {
+          createdAt: new Date(),
+          text: `mock-news-${i}`
+        }
+      })
+    }
+    connection.model('News').insertMany(arr, (err, res) => {
+      if (err) throw err
+      console.log(`Data for model = \`News\` has been added!`)
+      resolve()
+    });
   })
 });
 
@@ -63,26 +86,13 @@ const createMockGames = new Promise((resolve) => {
   })
 });
 
-const createMockFiles = new Promise((resolve) => { // TODO: mix with News
-  let arr = []
-  for (let i = 1; i <= 6; i++) {
-    arr.push({ binData: fs.readFileSync(__dirname + '/test-image.png') })
-  }
-  connection.model('File').insertMany(arr, (err, res) => {
-    if (err) throw err
-    console.log(`Data for model = \`File\` has been added!`)
-    resolve()
-  })
-});
-
 
 connection.dropDatabase().then(() => Promise.all([
   createMockUsers,
   createMockNews,
   createMockArticles,
   createMockTrailers,
-  createMockGames,
-  createMockFiles
+  createMockGames
 ]).then(res => {
   connection.close()
   console.log('Database was successfully filled!')
