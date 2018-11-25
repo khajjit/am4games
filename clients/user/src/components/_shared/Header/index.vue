@@ -72,12 +72,13 @@ header
       color: #32272b;
   li.search-button
     background-color: #ededed;
-    line-height: 65px;
+    line-height: 70px;
     width: 70px;
   .menu-icon
     width: 200px;
     height: 70px;
     color: white;
+    margin-top: -5px;
     margin-left: 110px;
     background-color: #30b5d8;
     vertical-align: middle;
