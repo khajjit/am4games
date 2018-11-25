@@ -1,10 +1,11 @@
 const express = require('express');
 const multer = require('multer');
 
-// require('../../database/models/File')
+const { connection } = require('../../database/config');
+const { checkAccess } = require('../../utils/auth');
 
-const { connection } = require('../../database/config')
-const { checkAccess } = require('../../utils/auth')
+require('../../database/models/File');
+const modelFile = connection.model('File');
 
 const apiEditor = express();
 const upload = multer();
@@ -16,13 +17,12 @@ if (process.env['NODE_ENV'] !== 'development') {
   })
 }
 
-// const modelFile = connection.model('File')
+apiEditor.get('/ping', (req, res) => res.json({ status: true, msg: 'route: /api-editor/ping' }));
 
-apiEditor.get('/test', (req, res) => res.json({ msg: 'Hello! It\'s server route = /api-editor' }));
-
-apiEditor.post('/images', upload.array('images'), (req, res) => {
-  // req.files.forEach(file => modelFile.create(file));
-  res.json({ msg: '/images - post request', file: req.files[0] })
+apiEditor.post('/image/upload', upload.single('image'), (req, res) => {
+  modelFile.create({ binData: req.file.buffer })
+    .then(doc => res.json({ status: true, id: doc['_id'] }))
+    .catch(err => res.json({ status: false, err }))
 })
 
 module.exports = {
