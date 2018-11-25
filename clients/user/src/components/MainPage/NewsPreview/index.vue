@@ -32,7 +32,7 @@ export default {
 <style scoped lang="sass">
 .news-preview-block
   width: 100%;
-  height: 560px;
+  height: 600px;
   .selected-news
     width: 100%;
     height: 100%;

@@ -10,7 +10,7 @@ apiCommon.get('/ping', (req, res) => res.json({ status: true, msg: 'route: /api-
 apiCommon.get('/news/preview', (req, res) => { /* TODO: Most popular or the newest */
   modelNews.find({}, (err, docs) => err ?      /* Currently send only first 6 news (newest) */
     res.json({ status: false, err }) :
-    res.json({ status: true, result: docs.slice(0, 6) }));
+    res.json({ status: true, result: docs.slice(0, 5) }));
 });
 
 apiCommon.get('/image/:id', (req, res) => {

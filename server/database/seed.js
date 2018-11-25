@@ -17,8 +17,8 @@ const createMockUsers = new Promise((resolve) => {
 
 const createMockNews = new Promise((resolve) => {
   let arr = []
-  for (let i = 1; i <= 6; i++) {
-    arr.push({ binData: fs.readFileSync(__dirname + '/test-image.png') })
+  for (let i = 1; i <= 5; i++) {
+    arr.push({ binData: fs.readFileSync(__dirname + `/test-data/news-preview-${i}.jpg`) })
   }
   connection.model('File').insertMany(arr, (err, res) => {
     if (err) throw err
@@ -28,7 +28,7 @@ const createMockNews = new Promise((resolve) => {
     for (let i = 1; i <= arrIdFiles.length; i++) {
       arr.push({
         previewData: {
-          imageId: arrIdFiles[i],
+          imageId: arrIdFiles[i - 1],
           textBoxColor: "#29abcd",
           titleColor: "#000000",
           descColor: "ffffff",
@@ -88,6 +88,7 @@ const createMockGames = new Promise((resolve) => {
 
 
 connection.dropDatabase().then(() => Promise.all([
+  // TODO: move functions to ./test-data
   createMockUsers,
   createMockNews,
   createMockArticles,
