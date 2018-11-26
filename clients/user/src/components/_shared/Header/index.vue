@@ -21,7 +21,7 @@
     </div>
     <div class="user-panel" v-if="userInfo">
       <button class="user-preview" v-on:click="logout">{{userInfo.login}}</button>
-      <img class="user-image">
+      <img class="user-image" src="https://picsum.photos/40/?random">
       <!-- <form class="user-menu"></form> -->
     </div>
   </header>
