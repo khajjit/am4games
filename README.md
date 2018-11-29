@@ -2,18 +2,16 @@
 
 Just a web application
 
-#### Development
-
-- Editor client - `yarn dev-editor`
-- Admin client - `yarn dev-admin`
-- User client - `yarn dev-user`
-- Server - `yarn dev-server`
-
 ##### Prerequisites
 
-- [Yarn](https://yarnpkg.com)
-- [Docker](https://www.docker.com/)
+Install [Git](http://git-scm.com), [Docker](https://www.docker.com), [Node.js](http://nodejs.org)
 
+##### Development
+
+- Editor client - `npm dev-editor`
+- Admin client - `npm dev-admin`
+- User client - `npm dev-user`
+- Server - `npm dev-server`
 
 #### In plans(remove this):
 
