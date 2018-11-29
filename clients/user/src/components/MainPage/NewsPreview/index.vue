@@ -108,6 +108,6 @@ export default {
           font-size: 17px;
           font-weight: 300;
           line-height: 26px;
-          margin-top: 20px;
+          margin-top: 15px;
           text-align: left;
 </style>
