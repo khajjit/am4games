@@ -7,12 +7,12 @@
           class="mini-image"
           v-for="(item, index) in newsList"
           :src="'/api-common/image/' + item.previewData.imageId"
-          v-on:click="selectNews(index)"
+          v-on:click="selectNews(index, 200)"
         />
         <div class="lower-diagonal" />
-        <div class="text-box">
-          <h2 class="title">{{selectedNews.previewData.title}}</h2>
-          <p class="desc">{{selectedNews.previewData.desc}}</p>
+        <div class="text-box" v-bind:style="customStyle.textBox">
+          <h2 class="title" v-bind:style="customStyle.title">{{selectedNews.previewData.title}}</h2>
+          <p class="desc" v-bind:style="customStyle.desc">{{selectedNews.previewData.desc}}</p>
         </div>
       </div>
     </div>
@@ -27,28 +27,39 @@ export default {
   data: () => ({
     newsList: [],
     selectedNews: null,
+    customStyle: {
+      textBox: null,
+      title: null,
+      desc: null
+    },
     bkgImage: null
   }),
   created: function() {
     return axios.get(`/api-common/news/preview`) // to `vuex`
       .then(response => {
-        const firstNews = response.data.result[0] // to `vuex`
         this.newsList = response.data.result
-        this.setupSelectedNews(firstNews)
-        this.setupBkgImage(firstNews.previewData.imageId)
+        this.selectNews(0)
       })
       .catch(error => console.log('Error happened = ', error))
   },
   methods: {
-    selectNews: function(index) {
-      this.setupSelectedNews(this.newsList[index])
-      this.setupBkgImage(this.selectedNews.previewData.imageId)
+    selectNews: function(index, timeout = 0) {
+      setTimeout(() => {
+        this.setupSelectedNews(this.newsList[index])
+        this.setupCustomStyle(this.newsList[index])
+        this.setupBkgImage(this.selectedNews.previewData.imageId)
+      }, timeout)
     },
     setupSelectedNews: function(news) {
       this.selectedNews = news
     },
     setupBkgImage: function(id) {
       this.bkgImage = { backgroundImage: `url(/api-common/image/${id})` }
+    },
+    setupCustomStyle: function(news) {
+      this.customStyle.textBox = { backgroundColor: news.previewData.textBoxColor }
+      this.customStyle.title = { color: news.previewData.titleColor }
+      this.customStyle.desc = { color: news.previewData.descColor }
     }
   }
 }
@@ -64,13 +75,12 @@ export default {
     .list-news
       width: 640px;
       height: 400px;
-      float: right;  // or `left`
+      float: right;
       margin-top: 80px;
       margin-left: 50px;
       margin-right: 50px;
       text-align: right;
       opacity: 0.4;
-      // background-color: green; // remove
       .upper-diagonal,
       .lower-diagonal,
       .mini-image

@@ -6,7 +6,6 @@ const schema = new mongoose.Schema({
     textBoxColor: String,
     titleColor: String,
     descColor: String,
-    headerColor: String,
     title: String,
     desc: String
   },
