@@ -7,7 +7,7 @@
           class="mini-image"
           v-for="(item, index) in newsList"
           :src="'/api-common/image/' + item.previewData.imageId"
-          v-on:click="selectNews(index, 200)"
+          v-on:click="selectNews(index)"
         />
         <div class="lower-diagonal" />
         <div class="text-box" v-bind:style="customStyle.textBox">
@@ -38,12 +38,12 @@ export default {
     return axios.get(`/api-common/news/preview`) // to `vuex`
       .then(response => {
         this.newsList = response.data.result
-        this.selectNews(0)
+        this.selectNews(0, 0)
       })
       .catch(error => console.log('Error happened = ', error))
   },
   methods: {
-    selectNews: function(index, timeout = 0) {
+    selectNews: function(index, timeout = 200) {
       setTimeout(() => {
         this.setupSelectedNews(this.newsList[index])
         this.setupCustomStyle(this.newsList[index])
