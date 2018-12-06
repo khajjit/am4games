@@ -16,6 +16,22 @@
         </div>
       </div>
     </div>
+    <div class="filter-panel">
+      <img src="../../../assets/common/NewsPreview-bottom-rectangles.png" />
+      <div>
+        <span>Сортировать:</span>
+        <button
+          v-bind:class="orderBy === `Popular` ? `toggled` : ``"
+          v-on:click="filterNewsBy(`Popular`)"
+        >Популярные
+        </button>
+        <button
+          v-bind:class="orderBy === `Fresh` ? `toggled` : ``"
+          v-on:click="filterNewsBy(`Fresh`)"
+        >Новые
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,6 +42,7 @@ export default {
   name: 'NewsPreview',
   data: () => ({
     newsList: [],
+    orderBy: 'Popular', // `Popular` or `Fresh`
     selectedNews: null,
     customStyle: {
       textBox: null,
@@ -35,7 +52,7 @@ export default {
     bkgImage: null
   }),
   created: function() {
-    return axios.get(`/api-common/news/preview`) // to `vuex`
+    return axios.get(`/api-common/news/preview`) // TODO: move to `vuex`
       .then(response => {
         this.newsList = response.data.result
         this.selectNews(0, 0)
@@ -49,6 +66,9 @@ export default {
         this.setupCustomStyle(this.newsList[index])
         this.setupBkgImage(this.selectedNews.previewData.imageId)
       }, timeout)
+    },
+    filterNewsBy: function(orderBy) {
+      this.orderBy = orderBy
     },
     setupSelectedNews: function(news) {
       this.selectedNews = news
@@ -120,4 +140,35 @@ export default {
           line-height: 26px;
           margin-top: 15px;
           text-align: left;
+  .filter-panel
+    > img
+      // TODO: rewrite with css and make possible change colors of rectangles
+      float: left;
+      margin-top: -67px;
+    > div
+      float: right;
+      margin-top: 40px;
+      margin-right: 80px;
+      > span
+        color: #272727;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 24px;
+        margin-right: 45px;
+      > button
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 24px;
+        margin-right: 10px;
+        border-radius: 3px;
+        line-height: 50px;
+        padding: 0px 40px;
+        background-color: white;
+        border: 0;
+
+        &.toggled
+          color: #33282c;
+          font-weight: 600;
+          background-color: #f2ca5b;
 </style>
