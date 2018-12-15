@@ -2,17 +2,31 @@
   <div class="news-preview-block">
     <div class="selected-news" v-if="selectedNews" v-bind:style="bkgImage">
       <div class="list-news">
-        <div class="upper-diagonal" />
+        <div class="upper-diagonal-box">
+          <div
+            class="upper-diagonal-line"
+            v-bind:style="customStyle.textBox"
+          />
+        </div>
         <img
           class="mini-image"
           v-for="(item, index) in newsList"
           :src="'/api-common/image/' + item.previewData.imageId"
           v-on:click="selectNews(index)"
         />
-        <div class="lower-diagonal" />
+        <div class="lower-diagonal-box">
+          <div
+            class="lower-diagonal-line"
+            v-bind:style="customStyle.textBox"
+          />
+        </div>
         <div class="text-box" v-bind:style="customStyle.textBox">
-          <h2 class="title" v-bind:style="customStyle.title">{{selectedNews.previewData.title}}</h2>
-          <p class="desc" v-bind:style="customStyle.desc">{{selectedNews.previewData.desc}}</p>
+          <h2 class="title" v-bind:style="customStyle.title">
+            {{selectedNews.previewData.title}}
+          </h2>
+          <p class="desc" v-bind:style="customStyle.desc">
+            {{selectedNews.previewData.desc}}
+          </p>
         </div>
       </div>
     </div>
@@ -101,19 +115,32 @@ export default {
       margin-right: 50px;
       text-align: right;
       opacity: 0.4;
-      .upper-diagonal,
-      .lower-diagonal,
+      .upper-diagonal-box,
+      .lower-diagonal-box,
       .mini-image
         cursor: pointer;
         display: inline-block;
         margin: 0;
         width: 160px;
         height: 100px;
-      .lower-diagonal,
+      .lower-diagonal-box,
       .mini-image:nth-child(n + 5)
         display: block;
         float: right;
         clear: both;
+      .upper-diagonal-line,
+      .lower-diagonal-line
+        height: 2px;
+        width: 117%;
+        background-color: black;
+        transform: rotate(148deg);
+        position: relative;
+      .upper-diagonal-line // TODO: rewrite this?
+        left: -8%;
+        top: 50%;
+      .lower-diagonal-line // TODO: rewrite this?
+        left: -9%;
+        top: 49%;
       .mini-image:nth-child(5)
         margin-top: -4px;
       .mini-image
@@ -148,19 +175,18 @@ export default {
     > div
       float: right;
       margin-top: 40px;
-      margin-right: 80px;
+      margin-right: 60px;
       > span
         color: #272727;
         font-size: 25px;
         font-weight: 300;
         line-height: 24px;
-        margin-right: 45px;
+        margin-right: 35px;
       > button
         cursor: pointer;
         font-size: 25px;
         font-weight: 300;
         line-height: 24px;
-        margin-right: 10px;
         border-radius: 3px;
         line-height: 50px;
         padding: 0px 40px;
