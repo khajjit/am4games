@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="filter-panel">
-      <img src="../../../assets/common/NewsPreview-bottom-rectangles.png" />
+      <img src="../../../assets/main-page/bottom-rectangles.png" />
       <div>
         <span>Сортировать:</span>
         <button
@@ -114,7 +114,6 @@ export default {
       margin-left: 50px;
       margin-right: 50px;
       text-align: right;
-      opacity: 0.4;
       .upper-diagonal-box,
       .lower-diagonal-box,
       .mini-image
@@ -145,8 +144,6 @@ export default {
         margin-top: -4px;
       .mini-image
         image-rendering: optimizequality;
-      &:hover
-        opacity: 1;
       .text-box
         width: 420px;
         height: 240px;
@@ -175,7 +172,7 @@ export default {
     > div
       float: right;
       margin-top: 40px;
-      margin-right: 60px;
+      margin-right: 120px;
       > span
         color: #272727;
         font-size: 25px;

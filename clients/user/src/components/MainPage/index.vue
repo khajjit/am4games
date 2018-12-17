@@ -1,8 +1,8 @@
 <template>
   <div class="main-page">
     <NewsPreview />
-    <HelloWorld /> <!-- TODO: remove after route `/` will be finished -->
     <NewsDashboard />
+    <HelloWorld /> <!-- TODO: remove after route `/` will be finished -->
     <GamesDashboard />
     <TrailersDashboard />
     <ArticlesDashboard />
