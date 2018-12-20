@@ -1,7 +1,7 @@
 <template>
   <div class="news-dashboard-block">
     <div class="heading">
-      <router-link to="#games" class="title">Новости</router-link>
+      <router-link to="#news" class="title">НОВОСТИ</router-link>
       <router-link to="/news" class="link-to-news">Все новости</router-link>
       <div class="dropdown-menu">
         <button
