@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (connection) => new Promise((resolve) => {
+module.exports = connection => new Promise((resolve) => {
   let arr = []
   for (let i = 1; i <= 5; i++) {
     arr.push({ binData: fs.readFileSync(__dirname + `/images/news-preview-${i}.jpg`) })
