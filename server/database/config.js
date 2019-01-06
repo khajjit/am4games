@@ -1,4 +1,5 @@
 /* The complete database schema is stored here: https://www.lucidchart.com */
+require('./models/_entry');
 const mongoose = require('mongoose');
 
 const names = {
@@ -13,7 +14,7 @@ connection.on('open', () => console.log('MongoDB connection opened!'));
 connection.on('connected', () => console.log('MongoDB connected!'));
 connection.on('reconnected', () => console.log('MongoDB reconnected!'));
 connection.on('disconnected', () => console.log('MongoDB disconnected!'));
-connection.on('error', (error) => {
+connection.on('error', error => {
   console.log('Error in MongoDB connection: ' + error);
   mongoose.disconnect();
 });

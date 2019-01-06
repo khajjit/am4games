@@ -1,25 +1,18 @@
-const fs = require('fs');
-const mongoose = require('mongoose');
-const models = require('./models/_entry');
-const { connection } = require('./config');
+const { connection } = require('./config')
 
-const createMockNews = require('./mock-data/News');
-const createMockUsers = require('./mock-data/Users');
-const createMockArticles = require('./mock-data/Articles');
-const createMockTrailers = require('./mock-data/Trailers');
-const createMockGames = require('./mock-data/Games');
+const tasks = [
+  require('./mock-data/Users'),
+  require('./mock-data/News'),
+  require('./mock-data/Articles'),
+  require('./mock-data/Trailers'),
+  require('./mock-data/Games')
+]
 
-connection.dropDatabase().then(() => Promise.all([
-  createMockUsers(connection),
-  createMockNews(connection),
-  createMockArticles(connection),
-  createMockTrailers(connection),
-  createMockGames(connection)
-]).then(res => {
-  connection.close()
-  console.log('Database was successfully filled!')
-}).catch(err => {
-  connection.close()
-  console.log('Some error happened')
-  console.log(err)
-}));
+const sequence = (tasks, connection) => tasks.reduce((promise, task) =>
+  promise.then(() => task(connection)), Promise.resolve())
+
+connection.dropDatabase()
+  .then(() => sequence(tasks, connection))
+  .then(res => console.log('Database was successfully filled!'))
+  .catch(err => console.error(`Some error happened!\n ${new Error(err)}`))
+  .finally(() => connection.close())

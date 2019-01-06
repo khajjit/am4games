@@ -1,15 +1,15 @@
 const fs = require('fs');
 
-module.exports = connection => new Promise((resolve) => {
-  let arr = []
-  for (let i = 1; i <= 5; i++) {
-    arr.push({ binData: fs.readFileSync(__dirname + `/images/news-preview-${i}.jpg`) })
-  }
-  connection.model('File').insertMany(arr, (err, res) => {
-    if (err) throw err
+module.exports = connection => new Promise((resolve, reject) => {
+  const imageArr = Array(5).fill().map((empty, i) => ({
+    binData: fs.readFileSync(__dirname + `/images/news-preview-${i + 1}.jpg`)
+  }))
+
+  connection.model('File').insertMany(imageArr, (err, res) => {
+    err && reject(err)
     const arrIdFiles = res.map(e => e['_id']);
 
-    let arr = [{
+    let data = [{
       previewData: {
         imageId: arrIdFiles[0],
         textBoxColor: "#1B77A6",
@@ -75,10 +75,8 @@ module.exports = connection => new Promise((resolve) => {
         text: `mock-news-${1}`
       }
     }];
-    connection.model('News').insertMany(arr, (err, res) => {
-      if (err) throw err
-      console.log(`Data for model = \`News\` has been added!`)
-      resolve()
-    });
+    connection.model('News').insertMany(data, (err, res) => !err ?
+      resolve(console.log(`Data for model = \`News\` has been added!`)) :
+      reject(err));
   })
 });

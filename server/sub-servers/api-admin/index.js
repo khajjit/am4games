@@ -7,7 +7,7 @@ require('../../database/models/_entry') // TODO: import only necessary models
 const apiAdmin = express();
 /* hide authorization for development mode */
 if (process.env['NODE_ENV'] !== 'development') {
-  apiEditor.all('*', (req, res, next) => {
+  apiAdmin.all('*', (req, res, next) => {
     checkAccess('admin', req) ? next() : res.redirect('/')
   })
 }
