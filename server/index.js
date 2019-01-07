@@ -1,8 +1,10 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 const app = express();
+app.use(morgan(':method :status (:response-time ms) - :url'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 

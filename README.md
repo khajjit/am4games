@@ -8,13 +8,7 @@ Install [Git](http://git-scm.com), [Docker](https://www.docker.com), [Node.js](h
 
 ##### Development
 
-- Editor client - `npm dev-editor`
-- Admin client - `npm dev-admin`
-- User client - `npm dev-user`
-- Server - `npm dev-server`
-
-#### In plans(remove this):
-
-- [ ] Setup performance tests and then try apply best practices [like this](http://expressjs.com/en/advanced/best-practice-performance.html)
-- [ ] Setup tests infrastructure
-- [ ] Setup logger for server
+- Editor client - `yarn dev-editor`
+- Admin client - `yarn dev-admin`
+- User client - `yarn dev-user`
+- Server - `yarn dev-server`
