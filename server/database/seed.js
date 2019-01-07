@@ -8,11 +8,11 @@ const tasks = [
   require('./mock-data/Games')
 ]
 
-const sequence = (tasks, connection) => tasks.reduce((promise, task) =>
+const setDataSequentially = (tasks, connection) => tasks.reduce((promise, task) =>
   promise.then(() => task(connection)), Promise.resolve())
 
 connection.dropDatabase()
-  .then(() => sequence(tasks, connection))
+  .then(() => setDataSequentially(tasks, connection))
   .then(res => console.log('Database was successfully filled!'))
   .catch(err => console.error(`Some error happened!\n ${new Error(err)}`))
   .finally(() => connection.close())
