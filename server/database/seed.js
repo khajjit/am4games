@@ -13,6 +13,6 @@ const setDataSequentially = (tasks, connection) => tasks.reduce((promise, task) 
 
 connection.dropDatabase()
   .then(() => setDataSequentially(tasks, connection))
-  .then(res => console.log('Database was successfully filled!'))
+  .then(() => console.log('Database was successfully filled!'))
   .catch(err => console.error(`Some error happened!\n ${new Error(err)}`))
   .finally(() => connection.close())

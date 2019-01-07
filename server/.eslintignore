@@ -1,0 +1,6 @@
+node_modules
+
+# Static files
+sub-servers/static-user/static
+sub-servers/static-admin/static
+sub-servers/static-editor/static

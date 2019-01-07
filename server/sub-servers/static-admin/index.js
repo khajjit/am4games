@@ -11,7 +11,7 @@ staticAdmin.all('*', (req, res, next) => {
 staticAdmin.get('*', (req, res) => { /* TODO: Optimize? */
   const url = req.baseUrl.replace(/^\/admin/, '')
   const filePath = __dirname + '/static' + url
-  fs.stat(filePath, (err, stat) => (err || url === '') ?
+  fs.stat(filePath, (err) => (err || url === '') ?
     res.sendFile(__dirname + '/static/index.html') :
     res.sendFile(filePath)
   )

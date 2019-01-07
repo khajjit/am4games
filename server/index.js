@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 });
 
 app.listen(process.env['PORT'], () => {
-  console.log('\x1b[36m%s\x1b[0m', 'Server started...');
+  console.log('Server started.');
 });
 
 module.exports = app;
