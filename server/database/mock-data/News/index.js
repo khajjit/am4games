@@ -75,8 +75,11 @@ module.exports = connection => new Promise((resolve, reject) => {
         text: `mock-news-${1}`
       }
     }];
-    connection.model('News').insertMany(data, (err, res) => !err ?
-      resolve(console.log(`Data for model = \`News\` has been added!`)) :
-      reject(err));
+    connection.model('News').insertMany(data, err => {
+      err && reject(err)
+      console.log(`News: new ${data.length} items (with attachments)`)
+      console.log(`  Files: ${arrIdFiles.length} new items`)
+      resolve()
+    });
   })
 });
