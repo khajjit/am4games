@@ -1,29 +1,8 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+const app = require('express')();
+const setup = require('./utils/setup-server');
 
-const app = express();
-app.use(morgan(':method :status (:response-time ms) - :url'));
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+setup.middleware(app);
+setup.routes(app);
+setup.listen(app);
 
-[
-  /* sub-servers for api by role */
-  require('./sub-servers/api-user'),
-  require('./sub-servers/api-editor'),
-  require('./sub-servers/api-admin'),
-  require('./sub-servers/api-common'),
-  /* sub-servers for static files */
-  require('./sub-servers/static-admin'),
-  require('./sub-servers/static-editor'),
-  require('./sub-servers/static-user')
-].forEach(server => {
-  app.use(server.route, server.app);
-});
-
-app.listen(process.env['PORT'], () => {
-  console.log('Server started.');
-});
-
-module.exports = app;
+// module.exports = app; // TODO: remove if it is not needed for tests.
