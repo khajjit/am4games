@@ -1,0 +1,11 @@
+--require chai
+#--reporter dot
+
+# Create test database script
+
+# Database (?)
+
+# Utils
+utils/auth.spec.js
+
+# Sub-servers

@@ -1,6 +1,7 @@
 {
   "version": "0.0.0",
   "name": "am4games",
+  "license": "MIT",
   "comment": "Dependencies must be duplicated from server/package.json (move to pre-deploy.sh?)",
   "engines": {
     "node": "11.0.0",

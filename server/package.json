@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "engines": {
     "node": "11.0.0",
     "yarn": "1.x"
@@ -8,7 +9,7 @@
     "docker-test": "sudo docker-compose up server_test database",
     "": "",
     "lint": "eslint ./",
-    "test": "echo \"tests not specified\"",
+    "test": "mocha --opts mocha.opts",
     "dev-start": "yarn install --check-files && sleep 5 && node database/seed.js && PORT=8080 NODE_ENV=development nodemon index.js --watch"
   },
   "dependencies": {
