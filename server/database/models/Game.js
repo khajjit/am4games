@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  info: String
+  imagePreviewUrl: String,
+  title: String,
+  shortDescription: String,
+  description: String,
+  platforms: String
 });
 
 schema.post('save', doc => console.log('New game has been saved!'));
